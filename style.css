@@ -1,0 +1,90 @@
+html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.root{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.game{
+  text-align: center;
+}
+
+.word-container{
+  overflow:auto;
+  background-color: antiquewhite;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid black;
+ 
+}
+
+.word{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.letter{
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.input-container{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#text-input{
+  width: 50%;
+  margin-bottom: 1rem;
+  padding: 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  text-align: center;
+  letter-spacing: 9px;
+}
+
+#submit-input{
+  width: 30%;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 1rem;
+}
+
+.text-decoration-line-through {
+  text-decoration: line-through !important;
+}
