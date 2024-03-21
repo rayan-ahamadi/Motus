@@ -88,3 +88,54 @@ body{
 .text-decoration-line-through {
   text-decoration: line-through !important;
 }
+
+.root-connexion .input{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.root-connexion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.root-register .input{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.root-register{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.input input{
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 9px;
+  border-radius: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.link-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.link-buttons button{
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 1rem;
+}
