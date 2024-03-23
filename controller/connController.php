@@ -4,7 +4,7 @@
   $playerRepository = new playerRepository();
   $pseudo = $_POST['pseudo'];
   $password = $_POST['password'];
-  $player = $playerRepository->getPlayer($pseudo);
+  $player = $playerRepository->getPlayer($pseudo)->fetch_assoc();
 
   if (password_verify($password, $player['password']) && $player['username'] == $pseudo) {
     header('Location: ../view/game.php?pseudo='.$pseudo);

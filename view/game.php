@@ -10,6 +10,10 @@
       if ($pseudo == null) {
         $pseudo = "Joueur";
       }
+      require '../repository/playerRepository.php';
+      $playerRepository = new PlayerRepository();
+      $rowPlayer = $playerRepository->getPlayer($pseudo)->fetch_assoc();
+
     ?>
     <title>Motus : <?= $pseudo ?></title>
   </head>
@@ -17,13 +21,13 @@
     <div class="root">
       <!-- Jeu !-->
       <div class="game">
-        <h1>Motus : <?= $pseudo ?></h1>
+        <h1 data-username=<?= $pseudo ?> data-id=<?= $rowPlayer['id']?>  id="h1-name">Motus : <?= $pseudo ?></h1>
         <section class="word-container">
           <div class="word">
             
           </div>
         </section>
-        <p id="nbCoup">Il vous reste : 6 coups</p>
+        <p id="nbCoup">Il vous reste : 6 coups - Vous êtes à 12 points</p>
         <section class="input-container">
           <input type="text" id="text-input" autocomplete="off" required autofocus>
           <input type="submit" value="Confirmer" id="submit-input">

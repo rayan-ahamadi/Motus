@@ -4,11 +4,11 @@
   $pseudo = $_POST['pseudo'];
   $password = $_POST['password'];
   $password2 = $_POST['password2'];
-  $getPseudo = $playerRepository->getPseudo($pseudo);
+  $getPseudo = $playerRepository->getPseudo($pseudo)->fetch_assoc();
 
   if ($password == $password2) {
     $password2 = password_hash($password2, PASSWORD_DEFAULT);
-    if ($getPseudo->fetch_assoc()['username'] != $pseudo) {
+    if ($getPseudo['username'] != $pseudo) {
       $playerRepository->addPlayer($pseudo, $password2);
       header('Location: ../index.php');
     } else {

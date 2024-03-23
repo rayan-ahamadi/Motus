@@ -9,7 +9,7 @@
 <body>
   <div class="root-register">
     <h1>Inscrivez vous à Motus</h1>
-    <form action="/controller/inscriController.php" method="POST">
+    <form action="/controller/inscriController.php" method="POST" >
 
       <div class="input">
         <label for="pseudo">Pseudo</label>

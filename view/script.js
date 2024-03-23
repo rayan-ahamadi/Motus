@@ -1,31 +1,31 @@
 
 fetch('mots.json')
-.then(response => {
-  if(!response.ok){
-    throw new Error("Erreur")
-  }
-  return response.json();
-})
-.then(data => {
+  .then(response => {
+    if(!response.ok){
+      throw new Error("Erreur")
+    }
+    return response.json();
+  })
+  .then(data => {
 
-  let wordList = new Array();
-  //dat est l'index dans ce for
-  for(let dat in data){
-    wordList.push(data[dat]["mot"])
-  }
-  //Ici on va exécuter le code du reste du jeu 
-  // car on dépend de la donnée json
+    let wordList = new Array();
+    //dat est l'index dans ce for
+    for(let dat in data){
+      wordList.push(data[dat]["mot"])
+    }
+    //Ici on va exécuter le code du reste du jeu 
+    // car on dépend de la donnée json
 
-  const newLetter = wordList[randomIndex(wordList)];
-  putLetter(newLetter);
+    const newLetter = wordList[randomIndex(wordList)];
+    putLetter(newLetter);
 
-  const submitText = document.querySelector('#submit-input');
-  submitText.addEventListener('click' , () => {checkWord(newLetter)});
+    const submitText = document.querySelector('#submit-input');
+    submitText.addEventListener('click' , () => {checkWord(newLetter)});
 
-})
-.catch(error => {
-  console.log(error);
-})
+  })
+  .catch(error => {
+    console.log(error);
+  })
 
 
 
@@ -84,6 +84,7 @@ textInput.addEventListener('input',(e) => {
 //script pour le submit
 
 let nbCoup = 6;
+let nbPoints = 12;
 function checkWord(realWord){
   const lastWord = document.querySelectorAll('.word:last-child .letter' );
   const wordList = realWord.split('');
@@ -111,6 +112,8 @@ function checkWord(realWord){
     document.querySelector('#text-input').disabled = true;
     document.querySelector('#retry-input').hidden = false;
     document.querySelector('#submit-input').hidden = true;
+    addScoreOnDb(nbPoints);
+    addWordOnDb(realWord,nbCoup);
   }else if(nbCoup == 0){
     document.querySelector('#text-input').value = "";
     alert('Vous avez perdu !');
@@ -120,7 +123,8 @@ function checkWord(realWord){
   }
   else{
     document.querySelector('#text-input').value = "";
-     nbCoup = nbCoup - 1;
+     nbCoup -= 1;
+     nbPoints -= 2;
      tryNewWord(goodResponse,nbCoup);
   }
   
@@ -141,12 +145,66 @@ function tryNewWord(letterList,nbCoup){
     newdiv.textContent = letterList[i];
     newWord.appendChild(newdiv);
   }
-  document.querySelector('#nbCoup').textContent = `Il vous reste ${nbCoup} coups`;
+  document.querySelector('#nbCoup').textContent = `Il vous reste ${nbCoup} coups - Vous êtes à ${nbPoints} points`;
 }
 
 const retryButton = document.querySelector('#retry-input');
 retryButton.addEventListener('click',() => {
   location.reload();
 })
+
+//code pour les requêtes post vers la BD
+
+// ajouter dans la table mot
+
+function addWordOnDb(word,nbCoups){
+  let idUser = document.querySelector('#h1-name').getAttribute('data-id'); 
+  const data = {
+    mot: word,
+    idUser: idUser,
+    nbCoups: nbCoups
+  }
+  
+  fetch('../controller/updateWords.php',{
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()})
+    .then(response => {
+      if(!response.ok){
+        throw new Error("Erreur")
+      }
+      return response.json();}
+    )
+    .catch(error => {
+      console.log(error);
+    })
+}
+
+// ajouter dans la table score
+
+function addScoreOnDb(score){
+  let userName = document.querySelector('#h1-name').getAttribute('data-username');
+
+  const data = {
+    username: userName,
+    score: score
+  }
+  
+  fetch('../controller/updateNbPoints.php',{
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  })
+  .then(response => {
+    if(!response.ok){
+      throw new Error("Erreur")
+    }
+    console.log(response);})
+  .catch(error => {
+    console.log(error);
+  })
+
+}
+
 
 
