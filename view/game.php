@@ -21,7 +21,7 @@
     <div class="root">
       <!-- Jeu !-->
       <div class="game">
-        <h1 data-username=<?= $pseudo ?> data-id=<?= $pseudo != 'Joueur' ? $rowPlayer['id'] : 'NULL'; ?>  id="h1-name">Motus : <?= $pseudo ?></h1>
+        <h1 data-username=<?= $pseudo ?> data-id=<?= $pseudo != 'Joueur' ? $rowPlayer['id'] : 'NULL'; ?>  id="h1-name"><span id="motus-h1">Motus</span> : <?= $pseudo ?></h1>
         <section class="word-container">
           <div class="word">
             

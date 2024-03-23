@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Pacifico&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 html{
   width: 100%;
   height: 100%;
@@ -6,14 +9,33 @@ html{
 }
 
 body{
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Rubik', sans-serif;
+  background-color: #F6CEFC;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
+h1{
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  font-size: 3rem;
+}
+
+#motus-h1{
+  font-family: 'Eagle Lake', cursive;
+}
+
+#submit-connexion{
+  cursor: pointer;
+}
+
+#submit-connexion:hover{
+  background-color: #F6CEFC;
+  box-shadow: white 0px 5px 15px;
+  transition: ease-in-out 0.2s;
+}
 
 .root{
   display: flex;
@@ -29,7 +51,7 @@ body{
 
 .word-container{
   overflow:auto;
-  background-color: antiquewhite;
+  background-color: #ffae9e;
   height: 100px;
   width: 100%;
   margin-bottom: 2rem;
@@ -80,9 +102,21 @@ body{
 #submit-input{
   width: 30%;
   margin-bottom: 1rem;
+  border-color: #ffae9e;
   border-radius: 10px;
-  border: 1px solid black;
   font-size: 1rem;
+  cursor: pointer;
+}
+
+#submit-input:hover{
+  background-color: #F6CEFC;
+  box-shadow: white 0px 5px 15px;
+  transition: ease-in-out 0.2s;
+}
+
+
+#submit-input:active{
+  transform: translateY(2px);
 }
 
 .text-decoration-line-through {
@@ -100,7 +134,6 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 .root-register .input{
@@ -121,9 +154,11 @@ body{
   width: 100%;
   margin-bottom: 1rem;
   padding: 9px;
-  border-radius: 10px;
-  border: 1px solid black;
   text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #aa7fc6, #ffae9e) 1;
+
 }
 
 .link-buttons{
@@ -136,14 +171,35 @@ body{
 .link-buttons button{
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid whitesmoke;
   font-size: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #aa7fc6, #ffae9e) 1;
 }
 
+button{
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #aa7fc6, #ffae9e) 1;
+}
+
+button:hover{
+  background-color: #F6CEFC;
+  box-shadow: white 0px 5px 15px;
+  transition: ease-in-out 0.2s;
+}
+
+
 table{
-  width: 90%;
+  width: 80%;
+  height: 70%;
   margin: 0 auto;
   border-collapse: collapse;
+  text-align: center;
 }
 
 th, td{
@@ -153,4 +209,12 @@ th, td{
 
 .root-classement h2, .root-words h2{
   text-align: center;
+}
+
+.root-classement{
+  height: 100%;
+}
+
+.root-words{
+  height: 100%;
 }

@@ -7,8 +7,9 @@
   <title>Motus</title>
 </head>
 <body>
+  <h1>Bienvenue dans le jeu <span id="motus-h1">Motus</span> !</h1>
   <div class="root-connexion">
-    <h1>Connexion au jeu motus</h1>
+    <h2>Connectez vous pour jouer</h2>
     <form action="/controller/connController.php" method="post" id="connexion">
         <div class="input">
           <label for="pseudo">Pseudo</label>
@@ -19,7 +20,7 @@
           <input type="password" name="password" id="password" required>
         </div>
         <div class="input">
-          <input type="submit" value="Connexion">
+          <input type="submit" value="Connexion" id="submit-connexion">
         </div>
     </form>
     <p>Pas encore inscrit ? <a href="./view/register.php">Inscrivez-vous !</a></p>
