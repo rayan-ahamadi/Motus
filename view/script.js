@@ -90,6 +90,8 @@ function checkWord(realWord){
   const wordList = realWord.split('');
   const textGiven = document.querySelector('#text-input').value.split('');
   const goodResponse = new Array();
+  const userName = document.querySelector('#h1-name').getAttribute('data-username');
+  const idUser = document.querySelector('#h1-name').getAttribute('data-id'); 
   
 
 
@@ -112,8 +114,10 @@ function checkWord(realWord){
     document.querySelector('#text-input').disabled = true;
     document.querySelector('#retry-input').hidden = false;
     document.querySelector('#submit-input').hidden = true;
-    addScoreOnDb(nbPoints);
-    addWordOnDb(realWord,nbCoup);
+    if(userName != 'Joueur' && idUser != 'NULL'){
+      addScoreOnDb(nbPoints);
+      addWordOnDb(realWord,nbCoup);
+    }
   }else if(nbCoup == 0){
     document.querySelector('#text-input').value = "";
     alert('Vous avez perdu !');

@@ -7,7 +7,8 @@
   $player = $playerRepository->getPlayer($pseudo)->fetch_assoc();
 
   if (password_verify($password, $player['password']) && $player['username'] == $pseudo) {
-    header('Location: ../view/game.php?pseudo='.$pseudo);
+    // Pour pas qu'une personne tiers puisse accéder à la page de jeu sans être connecté
+    header('Location: ../view/game.php?pseudo='.$pseudo.'&password='.$player['password']);
   } else {
     header('Location: ../index.php?error=1');
   }

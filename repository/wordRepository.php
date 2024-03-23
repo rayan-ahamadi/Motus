@@ -1,4 +1,5 @@
 <?php
+    require_once __DIR__ . '/../vendor/autoload.php';
     class wordRepository {
       private $dbHost;
       private $dbName;
@@ -6,11 +7,13 @@
       private $dbPassword;
   
       function __construct() {
-        $this->dbHost = 'localhost';
-        $this->dbName = 'rayan-ahamadi_motus';
-        $this->dbUser = 'rayan';
-        $this->dbPassword = 'qxd8enkm';
-        $conn = mysqli_connect($this->dbHost, $this->dbUser, $this->dbPassword, $this->dbName);
+        // Récupération des variables d'environnement
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv->load();
+        $this->dbHost = $_ENV['DB_HOST'];
+        $this->dbName = $_ENV['DB_NAME'];
+        $this->dbUser = $_ENV['DB_USER'];
+        $this->dbPassword = $_ENV['DB_PASSWORD'];
       }
 
       function getPlayerWords($word,$idUser) {

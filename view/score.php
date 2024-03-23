@@ -10,6 +10,7 @@
     <?php
       require_once '../repository/playerRepository.php';
       $pseudo = $_GET['pseudo'];
+      $password = $_GET['password'];
       $playerRepository = new PlayerRepository();
       $players = $playerRepository->getPlayerWords($pseudo);
       $row = $players->fetch_assoc();
@@ -46,10 +47,12 @@
           <br>
           <div class="link-buttons">
             <?php
-            if ($pseudo != "Joueur"){
-                echo "<a href='ranking.php?pseudo={$pseudo}'><button>Voir le classement</button></a>";
+              if ($pseudo != "Joueur"){
+                echo "<a href='ranking.php?pseudo={$pseudo}&password={$password}'><button>Voir le classement</button></a>";
+                echo "<a href='game.php?pseudo={$pseudo}&password={$password}'><button>Revenir au jeu</button></a>";
+              }else{
+                header('Location: ../game.php?pseudo=Joueur');
               }
-            echo "<a href='game.php?pseudo={$pseudo}'><button>Revenir au jeu</button></a>";
             ?>
           </div>
     </div>

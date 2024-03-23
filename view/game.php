@@ -7,12 +7,12 @@
     <script src="script.js" defer></script>
     <?php
       $pseudo = $_GET['pseudo'];
-      if ($pseudo == null) {
-        $pseudo = "Joueur";
+      $password= $_GET['password'];
+      if ($pseudo != 'Joueur') {
+        require '../repository/playerRepository.php';
+        $playerRepository = new PlayerRepository();
+        $rowPlayer = $playerRepository->getPlayer($pseudo)->fetch_assoc();
       }
-      require '../repository/playerRepository.php';
-      $playerRepository = new PlayerRepository();
-      $rowPlayer = $playerRepository->getPlayer($pseudo)->fetch_assoc();
 
     ?>
     <title>Motus : <?= $pseudo ?></title>
@@ -21,7 +21,7 @@
     <div class="root">
       <!-- Jeu !-->
       <div class="game">
-        <h1 data-username=<?= $pseudo ?> data-id=<?= $rowPlayer['id']?>  id="h1-name">Motus : <?= $pseudo ?></h1>
+        <h1 data-username=<?= $pseudo ?> data-id=<?= $pseudo != 'Joueur' ? $rowPlayer['id'] : 'NULL'; ?>  id="h1-name">Motus : <?= $pseudo ?></h1>
         <section class="word-container">
           <div class="word">
             
@@ -43,10 +43,14 @@
           $player = $playerRepository->getPlayer($pseudo);
 
           if ($pseudo != "Joueur" && $player != null){
-            echo '<a href="score.php?pseudo='.$pseudo.'"><button>Voir mes mots devinés</button></a>';
+            echo '<a href="score.php?pseudo='.$pseudo.'&password='.$password.'"><button>Voir mes mots devinés</button></a>';
+            echo '<a href="ranking.php?pseudo='.$pseudo.'&password='.$password.'"><button>Voir le classement</button></a>';
+          }else{
+            //pour que même sans se connecter on puisse voir le classement
+            echo '<a href="ranking.php?pseudo='.$pseudo.'"><button>Voir le classement</button></a>';
           }
-          //pour que même sans se connecter on puisse voir le classement
-          echo '<a href="ranking.php?pseudo='.$pseudo.'"><button>Voir le classement</button></a>';
+          
+          
         ?>
       </div>
 
