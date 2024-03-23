@@ -151,6 +151,6 @@ th, td{
   padding: 10px;
 }
 
-.root-classement h2{
+.root-classement h2, .root-words h2{
   text-align: center;
 }

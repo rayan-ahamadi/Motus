@@ -26,19 +26,21 @@
               <th>Pseudo</th>
               <th>Score</th>
             </tr>
+          </thead>
+          <tbody>
             <?php
               $i = 1;
               while ($row) {
                 echo '<tr>';
                 echo '<td>'.$i.'</td>';
-                echo '<td>'.$row['username'].'</td>';
+                echo '<th>'.$row['username'].'</th>';
                 echo '<td>'.$row['score'].'</td>';
                 echo '</tr>';
                 $row = $players->fetch_assoc();
                 $i++;
               }
             ?>
-          </thead>
+          </tbody>  
         </table>
         <br>
         <div class="link-buttons">

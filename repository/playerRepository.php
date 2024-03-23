@@ -76,6 +76,14 @@
       return $result;
     }
 
+    function getPlayerWords($pseudo) {
+      $conn = mysqli_connect($this->dbHost, $this->dbUser, $this->dbPassword, $this->dbName);
+      $query = "SELECT word,nbCoups FROM word INNER JOIN player ON word.idUser = player.id WHERE username = '$pseudo'";
+      $result = mysqli_query($conn, $query);
+      $conn->close();
+      return $result;
+    }
+
 
   }
 

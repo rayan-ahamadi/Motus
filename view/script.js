@@ -159,6 +159,8 @@ retryButton.addEventListener('click',() => {
 
 function addWordOnDb(word,nbCoups){
   let idUser = document.querySelector('#h1-name').getAttribute('data-id'); 
+  //il faut récuperer en combien de coups le mot est trouvé
+  nbCoups = 6 - nbCoups;
   const data = {
     mot: word,
     idUser: idUser,
