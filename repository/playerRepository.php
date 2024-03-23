@@ -12,9 +12,9 @@
       $this->dbPassword = 'qxd8enkm';
     }
 
-    function getAllPlayers() {
+    function getRanking() {
       $conn = mysqli_connect($this->dbHost, $this->dbUser, $this->dbPassword, $this->dbName);
-      $query = "SELECT * FROM player";
+      $query = "SELECT `username`,`score` FROM `player` ORDER BY `player`.`score` DESC";
       $result = mysqli_query($conn, $query);
       $conn->close();
       return $result;

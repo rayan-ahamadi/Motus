@@ -23,7 +23,7 @@
         </div>
     </form>
     <p>Pas encore inscrit ? <a href="./view/register.php">Inscrivez-vous !</a></p>
-    <a href="./view/game.php"><button>Jouer sans me connecter</button></a>
+    <a href="./view/game.php?pseudo=Joueur"><button>Jouer sans me connecter</button></a>
     <?php
       if ($_GET['error'] && $_GET['error'] == 1) {
         echo '<p style="color:red">Erreur de connexion : Pseudo ou mot de passe incorrect</p>';

@@ -45,8 +45,9 @@
           if ($pseudo != "Joueur" && $player != null){
             echo '<a href="score.php?pseudo='.$pseudo.'"><button>Voir mes mots devinés</button></a>';
           }
+          //pour que même sans se connecter on puisse voir le classement
+          echo '<a href="ranking.php?pseudo='.$pseudo.'"><button>Voir le classement</button></a>';
         ?>
-        <a href="ranking.php"><button>Voir le classement</button></a>
       </div>
 
     </div>
