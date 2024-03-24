@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="view/style.css">
+  <link rel="icon" href="./view/lettre-m.png" />
   <title>Motus</title>
 </head>
 <body>
   <h1>Bienvenue dans le jeu <span id="motus-h1">Motus</span> !</h1>
   <div class="root-connexion">
     <h2>Connectez vous pour jouer</h2>
-    <form action="/controller/connController.php" method="post" id="connexion">
+    <form action="./controller/connController.php" method="post" id="connexion">
         <div class="input">
           <label for="pseudo">Pseudo</label>
           <input type="text" name="pseudo" id="pseudo" autocomplete="off" required>
