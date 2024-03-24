@@ -29,6 +29,7 @@ h1{
 
 #submit-connexion{
   cursor: pointer;
+  background-color: #aa7fc6;
 }
 
 #submit-connexion:hover{
@@ -100,6 +101,7 @@ h1{
 }
 
 #submit-input{
+  background-color: #aa7fc6;
   width: 30%;
   margin-bottom: 1rem;
   border-color: #ffae9e;
@@ -179,6 +181,7 @@ h1{
 }
 
 button{
+  background-color: #aa7fc6;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
