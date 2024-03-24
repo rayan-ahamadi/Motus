@@ -30,6 +30,7 @@ h1{
 #submit-connexion{
   cursor: pointer;
   background-color: #aa7fc6;
+  color: whitesmoke;
 }
 
 #submit-connexion:hover{
@@ -102,6 +103,7 @@ h1{
 
 #submit-input{
   background-color: #aa7fc6;
+  color: whitesmoke;
   width: 30%;
   margin-bottom: 1rem;
   border-color: #ffae9e;
@@ -182,6 +184,7 @@ h1{
 
 button{
   background-color: #aa7fc6;
+  color: whitesmoke;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -198,6 +201,7 @@ button:hover{
 
 
 table{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 80%;
   height: 70%;
   margin: 0 auto;
@@ -213,6 +217,7 @@ th, td{
 
 thead{
   background-color: #aa7fc6;
+  color: whitesmoke;
   color: white;
 }
 
