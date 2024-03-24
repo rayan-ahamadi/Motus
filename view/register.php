@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jeu Motus, réalisé par Rayan.A">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="lettre-m.png" />
   <title>Motus</title>
