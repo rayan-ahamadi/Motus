@@ -10,6 +10,7 @@
   </head>
   <body>
     <?php
+      //Ici on récupère les mots devinés par le joueur 
       require_once '../repository/playerRepository.php';
       $pseudo = $_GET['pseudo'];
       $password = $_GET['password'];

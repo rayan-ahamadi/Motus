@@ -36,6 +36,8 @@
     <p>Déjà inscrit ? <a href="/index.php">Connectez-vous</a></p>
 
     <?php
+      // Après la requête POST vers le controller, on peut afficher un message d'erreur 
+      // grâce à la variable $_GET['error'] qui est passée en paramètre de l'url
       if ($_GET['error'] && $_GET['error'] == 1) {
         echo '<p style="color:red">Erreur d\'inscription : Pseudo déjà utilisé</p>';
       }

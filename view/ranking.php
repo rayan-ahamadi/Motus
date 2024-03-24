@@ -10,6 +10,7 @@
 </head>
 <body>
   <?php
+    //Récupération du classement par ordre décroissant
     require_once '../repository/playerRepository.php';
     $password = $_GET['password'];
     $pseudo = $_GET['pseudo'];

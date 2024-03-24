@@ -8,6 +8,7 @@
     <script src="script.js" defer></script>
     <link rel="icon" href="lettre-m.png" />
     <?php
+
       $pseudo = $_GET['pseudo'];
       $password= $_GET['password'];
       if ($pseudo != 'Joueur') {
@@ -44,6 +45,7 @@
           $playerRepository = new PlayerRepository();
           $player = $playerRepository->getPlayer($pseudo);
 
+          //Ici on récupère le pseudo et le mot de passe pour les passer en paramètre dans les liens
           if ($pseudo != "Joueur" && $player != null){
             echo '<a href="score.php?pseudo='.$pseudo.'&password='.$password.'"><button>Voir mes mots devinés</button></a>';
             echo '<a href="ranking.php?pseudo='.$pseudo.'&password='.$password.'"><button>Voir le classement</button></a>';

@@ -8,6 +8,7 @@
 
   if ($password == $password2) {
     $password2 = password_hash($password2, PASSWORD_DEFAULT);
+    // Si le pseudo n'existe pas dans la db, on l'ajoute
     if ($getPseudo['username'] != $pseudo) {
       $playerRepository->addPlayer($pseudo, $password2);
       header('Location: ../index.php');
